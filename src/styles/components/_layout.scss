@@ -1,0 +1,20 @@
+.layout {
+    min-height: 100vh;
+    padding: 1rem;
+
+    &__container {
+        max-width: $max-width;
+        min-width: $min-width;
+        margin: 0 auto;
+    }
+
+    &__main {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        @include media-up('md') {
+            flex-direction: row;
+        }
+    }
+}
