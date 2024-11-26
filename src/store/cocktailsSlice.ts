@@ -8,7 +8,8 @@ export const fetchCocktail = createAsyncThunk(
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailCode}`
     );
     const data = await response.json();
-    return data.drinks[0];
+    console.log("🚀 ~ data:", data);
+    return data.drinks;
   }
 );
 
@@ -30,7 +31,7 @@ const cocktailsSlice = createSlice({
       })
       .addCase(fetchCocktail.fulfilled, (state, action) => {
         state.loading = false;
-        state.cocktails[action.meta.arg] = action.payload;
+        state.cocktails[action.meta.arg] = action.payload || [];
       })
       .addCase(fetchCocktail.rejected, (state, action) => {
         state.loading = false;

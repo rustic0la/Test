@@ -9,7 +9,7 @@ export interface Cocktail {
 }
 
 export interface CocktailsState {
-  cocktails: Record<string, Cocktail>;
+  cocktails: Record<string, Cocktail[]>;
   loading: boolean;
   error: string | null;
 }
